@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSandbox", "WebApiSandbox\WebApiSandbox.csproj", "{C948AC4B-5132-4E13-BA84-60256590A1D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiSandboxTests", "WebApiSandboxTests\WebApiSandboxTests.csproj", "{2993274E-DDFF-4719-9EAC-131C964108D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C948AC4B-5132-4E13-BA84-60256590A1D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C948AC4B-5132-4E13-BA84-60256590A1D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C948AC4B-5132-4E13-BA84-60256590A1D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C948AC4B-5132-4E13-BA84-60256590A1D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2993274E-DDFF-4719-9EAC-131C964108D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2993274E-DDFF-4719-9EAC-131C964108D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2993274E-DDFF-4719-9EAC-131C964108D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2993274E-DDFF-4719-9EAC-131C964108D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

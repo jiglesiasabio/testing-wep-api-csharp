@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using WebApiSandbox.Services;
 
 namespace WebApiSandbox
 {
@@ -31,6 +32,8 @@ namespace WebApiSandbox
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "WebApiSandbox", Version = "v1"});
             });
+            
+            services.Add(new ServiceDescriptor(typeof(Sha256HashingServiceInterface), new Sha256Sha256HashingService()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

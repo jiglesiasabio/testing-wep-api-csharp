@@ -37,12 +37,31 @@ namespace WebApiSandboxTests.Weather
                 {
                     builder.ConfigureTestServices(services =>
                     {
+                        // Here we setup the service with a mocked replica we can control from our test
                         services.Add(new ServiceDescriptor(typeof(WeatherServiceInterface), new WeatherService(this._weatherClientInterfaceMock.Object)));
                     });
                 })
                 .CreateClient();
         }
 
+        /*
+         * In this integration test we want to test all the components of the application but mocking the WeatherClient
+         * because we do not want to call any third party when running our tests.
+         * 
+         * Also we want to have full control of what the client is returning so we know what to expect the controller to return.
+         *
+         * What we are doing:
+         * 
+         * 1. We mock the client
+         * 2. We setup an expectation for the mock so we can control what temperature it will return
+         * 3. We assert that the json response has been built correctly for the given input (coming from the service)
+         *
+         * This way we are testing:
+         * 
+         * a. The controller interface.
+         * b. That the controller and the WeatherService play well together.
+         * c. That the WeatherService and the WeatherClient play well together.
+         */
         [Test]
         public async Task ItShouldTellTheWeatherForACity()
         {

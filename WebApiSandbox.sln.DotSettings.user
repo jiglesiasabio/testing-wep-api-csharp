@@ -1,0 +1,19 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0c18d52d_002D2b1d_002D4126_002Dba60_002D725ab8c86e12/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ItShouldReturnTheHashOfReceivedClearText #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::2993274E-DDFF-4719-9EAC-131C964108D5::net5.0::WebApiSandboxTests.Tests.ItShouldReturnTheHashOfReceivedClearText&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3ff76b31_002Df88f_002D4eeb_002Daff4_002Dc83bea13ff0a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ItShouldReturnTheHashOfReceivedClearText #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\jiglesia\devdata\WebApiSandbox\WebApiSandboxTests" Presentation="&amp;lt;WebApiSandboxTests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e46456ed_002D616f_002D4441_002D908b_002D461eb8ae5333/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ItShouldReturnTheHashOfReceivedClearText" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::2993274E-DDFF-4719-9EAC-131C964108D5::net5.0::WebApiSandboxTests.Tests.ItShouldReturnTheHashOfReceivedClearText&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f23f52b5_002Def36_002D49c8_002D8bfe_002D0b75c748f657/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ItShouldHashAString" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::2993274E-DDFF-4719-9EAC-131C964108D5::net5.0::WebApiSandboxTests.Sha256.Sha256HashingIntegrationTest.ItShouldHashAString&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

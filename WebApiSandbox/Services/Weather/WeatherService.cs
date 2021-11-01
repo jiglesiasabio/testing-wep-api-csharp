@@ -25,13 +25,13 @@ namespace WebApiSandbox.Services.Weather
             
             switch (celsius)
             {
-                case < 10:
+                case <= 10:
                     description = "Cold";
                     break;
-                case < 21:
+                case <= 21:
                     description = "Fresh";
                     break;
-                case < 40:
+                case <= 40:
                     description = "Hot";
                     break;
                 default:
@@ -41,6 +41,5 @@ namespace WebApiSandbox.Services.Weather
             
             return new CityWeather(description, celsius, farenheit);
         }
-
     }
 }

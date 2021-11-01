@@ -42,7 +42,8 @@ namespace WebApiSandboxTests.Weather
             Assert.AreEqual(expectedFarenheit,returnedValue.Farenheit);
         }
         
-        // It should say cold if celsius are below 10
+        // Let's verify "description" field values...
+        
         [Test]
         public void ItShouldReturnDescriptionColdIfCelsiusAreBelow10()
         {
@@ -113,6 +114,39 @@ namespace WebApiSandboxTests.Weather
 
             // THEN
             Assert.AreEqual("Hell!",returnedValue.Description);
+        }
+        
+        // Let's try to do it in a better and more exhaustive way
+        // Using TestCases we can test many similar cases without repeating our testing code!!
+        // So now you can go up in this test file and delete some tests!! 🔥
+        
+        [TestCase(0, "Cold", TestName = "0 Celsius is Cold")]
+        [TestCase(9, "Cold", TestName = "9 Celsius is Cold")]
+        [TestCase(10, "Cold", TestName = "10 Celsius is Cold")]
+        
+        [TestCase(11, "Fresh", TestName = "11 Celsius is Fresh")]
+        [TestCase(15, "Fresh", TestName = "15 Celsius is Fresh")]
+        [TestCase(21, "Fresh", TestName = "11 Celsius is Fresh")]
+        
+        [TestCase(22, "Hot", TestName = "21 Celsius is Hot")]
+        [TestCase(30, "Hot", TestName = "30 Celsius is Hot")]
+        [TestCase(40, "Hot", TestName = "40 Celsius is Hot")]
+        
+        [TestCase(41, "Hell!", TestName = "41 Celsius is Hell!")]
+        public void ItShouldReturnTheExpectedDescriptionForGivenCelsiusTemperature(int givenCelsius, string expectedDescription)
+        {
+            // GIVEN
+            var city = "madrid";
+
+            _weatherClientInterfaceMock
+                .Setup(m => m.GetCelsiusTempForCity(city))
+                .Returns(givenCelsius);
+            
+            // WHEN
+            CityWeather returnedValue = _sut.getWeatherForCity(city);
+
+            // THEN
+            Assert.AreEqual(expectedDescription,returnedValue.Description);
         }
     }
 }

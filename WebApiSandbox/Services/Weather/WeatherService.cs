@@ -1,4 +1,5 @@
-﻿using WebApiSandbox.Clients;
+﻿using System;
+using WebApiSandbox.Clients;
 
 namespace WebApiSandbox.Services.Weather
 {
@@ -13,13 +14,33 @@ namespace WebApiSandbox.Services.Weather
 
         public CityWeather getWeatherForCity(string cityName)
         {
+            // We get the celsius value from a 3rd party API (simlulated)
             var celsius = _weatherClient.GetCelsiusTempForCity(cityName);
             
-            return new CityWeather("Fresh", celsius, 32);
+            // We calculate the Farenheit value
+            var farenheit = (celsius * 9 / 5) + 32;
+            
+            // We assign a description to the temp value
+            var description = String.Empty;
+            
+            switch (celsius)
+            {
+                case < 10:
+                    description = "Cold";
+                    break;
+                case < 21:
+                    description = "Fresh";
+                    break;
+                case < 40:
+                    description = "Hot";
+                    break;
+                default:
+                    description = "Hell!";
+                    break;
+            }
+            
+            return new CityWeather(description, celsius, farenheit);
         }
-        
-        // TODO male the 'description' field dynamic
-        // TODO make the 'farenheit' calculated based on the celsius value (X°C × 9/5) + 32 = 32°F
 
     }
 }

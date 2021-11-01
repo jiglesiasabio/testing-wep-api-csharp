@@ -19,9 +19,10 @@ namespace WebApiSandboxTests.Weather
             
             _sut = new WeatherService(_weatherClientInterfaceMock.Object);
         }
-
+        
+        // ItShouldReturnTheRightFarenheitTemperature
         [Test]
-        public void ItShouldReturnACityWeatherObject()
+        public void ItShouldReturnTheRightCelsiusFarenheitTemperaturePair()
         {
             // GIVEN
             var city = "madrid";
@@ -35,19 +36,83 @@ namespace WebApiSandboxTests.Weather
             CityWeather returnedValue = _sut.getWeatherForCity(city);
 
             // THEN
-            Assert.AreEqual(celsiusInMadrid,returnedValue.celsius);
+            Assert.AreEqual(celsiusInMadrid,returnedValue.Celsius);
+            
+            var expectedFarenheit = 107;
+            Assert.AreEqual(expectedFarenheit,returnedValue.Farenheit);
         }
         
-        // ItShouldReturnTheRightFarenheitTemperature
-        
         // It should say cold if celsius are below 10
+        [Test]
+        public void ItShouldReturnDescriptionColdIfCelsiusAreBelow10()
+        {
+            // GIVEN
+            var city = "madrid";
+            var celsiusInMadrid = 9;
+
+            _weatherClientInterfaceMock
+                .Setup(m => m.GetCelsiusTempForCity(city))
+                .Returns(celsiusInMadrid);
+            
+            // WHEN
+            CityWeather returnedValue = _sut.getWeatherForCity(city);
+
+            // THEN
+            Assert.AreEqual("Cold",returnedValue.Description);
+        }
         
-        // It should say fresh if celsius are between 10 and 21
+        [Test]
+        public void ItShouldReturnDescriptionFreshIfCelsiusAreBetween10And21()
+        {
+            // GIVEN
+            var city = "madrid";
+            var celsiusInMadrid = 12;
+
+            _weatherClientInterfaceMock
+                .Setup(m => m.GetCelsiusTempForCity(city))
+                .Returns(celsiusInMadrid);
+            
+            // WHEN
+            CityWeather returnedValue = _sut.getWeatherForCity(city);
+
+            // THEN
+            Assert.AreEqual("Fresh",returnedValue.Description);
+        }
         
-        // It should say hot if celsius are between 21 and 40
+        [Test]
+        public void ItShouldReturnDescriptionHotIfCelsiusAreBetween21And40()
+        {
+            // GIVEN
+            var city = "madrid";
+            var celsiusInMadrid = 30;
+
+            _weatherClientInterfaceMock
+                .Setup(m => m.GetCelsiusTempForCity(city))
+                .Returns(celsiusInMadrid);
+            
+            // WHEN
+            CityWeather returnedValue = _sut.getWeatherForCity(city);
+
+            // THEN
+            Assert.AreEqual("Hot",returnedValue.Description);
+        }
         
-        // It should say hell! if celsius are above 40
-        
-        // But Maybe this should be on a separated service??? refactor here???
+        [Test]
+        public void ItShouldReturnDescriptionHellIfCelsiusAreAbove40()
+        {
+            // GIVEN
+            var city = "madrid";
+            var celsiusInMadrid = 42;
+
+            _weatherClientInterfaceMock
+                .Setup(m => m.GetCelsiusTempForCity(city))
+                .Returns(celsiusInMadrid);
+            
+            // WHEN
+            CityWeather returnedValue = _sut.getWeatherForCity(city);
+
+            // THEN
+            Assert.AreEqual("Hell!",returnedValue.Description);
+        }
     }
 }

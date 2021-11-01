@@ -1,12 +1,10 @@
 using System;
-using System.Security.Claims;
 using NUnit.Framework;
-using WebApiSandbox.Controllers;
 using WebApiSandbox.Services;
 
-namespace WebApiSandboxTests
+namespace WebApiSandboxTests.Sha256
 {
-    public class Tests
+    public class Sha256HashingServiceTest
     {
         private Sha256HashingServiceInterface sut;
         

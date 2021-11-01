@@ -1,4 +1,4 @@
-﻿namespace WebApiSandbox.Controllers
+﻿namespace WebApiSandbox.Controllers.crypto.Sha256
 {
     public class HashRequest
     {

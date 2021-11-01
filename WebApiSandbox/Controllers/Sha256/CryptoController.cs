@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WebApiSandbox.Controllers.Sha256;
 using WebApiSandbox.Services;
 
-namespace WebApiSandbox.Controllers
+namespace WebApiSandbox.Controllers.crypto.Sha256
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("crypto")]
     public class CryptoController : ControllerBase
     {
         private readonly ILogger<CryptoController> _logger;
@@ -20,11 +19,19 @@ namespace WebApiSandbox.Controllers
             _sha256HashingService = sha256HashingService;
         }
 
-        [HttpPost]
-        public HashResponse Post(HashRequest request)
+        [HttpPost("sha256")]
+        public IActionResult Post(HashRequest request)
         {
-            var hash = this._sha256HashingService.Hash(request.ClearText);
-            return new HashResponse(hash);
+            try
+            {
+                var hash = _sha256HashingService.Hash(request.ClearText);
+                return Ok(new HashResponse(hash));
+            }
+            catch (ArgumentException exception)
+            {
+                var apiError = new ApiError("400", exception.Message);
+                return BadRequest(apiError);
+            }
         }
     }
 }

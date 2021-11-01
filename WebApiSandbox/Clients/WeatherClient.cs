@@ -4,7 +4,7 @@ namespace WebApiSandbox.Clients
 {
     public class WeatherClient: WeatherClientInterface
     {
-        public int GetCelsiusTempForCity(string city)
+        public virtual int GetCelsiusTempForCity(string city)
         {
             /*
              * A note about this client, for the purpose of this demo this client
